@@ -169,3 +169,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# Remove sales plot
+notebooks/sales_plot.png
