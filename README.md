@@ -6,6 +6,8 @@ You may use use google and IDE autocomplete functions but no code completion too
 
 Good luck!
 
+Task 0: Clone this repo
+
 Task 1: Switch to develop branch (done)
 
 Task 2: Create a branch from develop and switch to it 
