@@ -34,7 +34,6 @@ if __name__ == "__main__":
     
     # Attempt to sort
     sorted_list = custom_sort(test_list)
-    print("Result of custom_sort:", sorted_list)
     
     # Check if the list is actually sorted in ascending order
     if sorted_list == sorted(original_list_copy):
