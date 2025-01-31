@@ -1,43 +1,50 @@
 """
-debugging_test.py
+debugging_test_max_subarray.py
 
 This script is designed to test your debugging capabilities.
 
-The function 'custom_sort' below is intended to sort a list of integers in ascending order.
-However, it currently contains a bug. Your task is to fix the bug.
+The function 'max_subarray_sum' below is intended to return the maximum possible sum
+of any contiguous subarray within the input list of integers. However, there's a bug
+that you need to fix.
 
-Use the built-in test at the bottom of this file to verify that your fix is correct.
+Use the built-in tests at the bottom of this file to verify that your fix is correct.
 """
 
-def custom_sort(lst):
+def max_subarray_sum(nums):
     """
-    Sorts a list of integers in ascending order.
-    param lst: List of integers to be sorted
-    return: List of integers sorted in ascending order
+    Returns the largest sum of any contiguous subarray in nums.
+    For example, max_subarray_sum([1, -1, 2, 3]) should return 5,
+    because the subarray [2, 3] has the sum 5.
     """
-    n = len(lst)
-    for i in range(n):
-        for j in range(0, n - i - 1):
-            if lst[j] < lst[j + 1]:
-                temp = lst[j]
-                lst[j] = lst[j + 1]
-                lst[j + 1] = temp
-    return lst
+
+    current_sum = 0
+    max_sum = 0 
+
+    for num in nums:
+        current_sum += num
+        if current_sum > max_sum:
+            max_sum = current_sum
+        if current_sum < 0:
+            current_sum = 0
+
+    return max_sum
 
 
 if __name__ == "__main__":
-    # Minimal test
-    test_list = [64, 25, 12, 22, 11]
-    
-    # Keep an original copy for checking
-    original_list_copy = test_list.copy()
-    
-    # Attempt to sort
-    sorted_list = custom_sort(test_list)
-    print("Result of custom_sort:", sorted_list)
-    
-    # Check if the list is actually sorted in ascending order
-    if sorted_list == sorted(original_list_copy):
-        print("Success: The list is sorted correctly.")
-    else:
-        print("Error: The list is NOT sorted correctly.")
+    # Test cases: each tuple is (input_list, expected_output)
+    test_cases = [
+        ([1, 2, 3], 6),               
+        ([1, -1, 2, -1, 3], 5),       
+        ([-2, -3, -1], -1),           
+        ([0, 0, 0], 0),               
+        ([2, -1, 2, 3, 4, -5, 4], 10) 
+    ]
+
+    for i, (arr, expected) in enumerate(test_cases, 1):
+        result = max_subarray_sum(arr)
+        print(f"Test {i}: Input = {arr}")
+        print(f"Expected = {expected}, Got = {result}")
+        if result == expected:
+            print("Success\n")
+        else:
+            print("Failure\n")
