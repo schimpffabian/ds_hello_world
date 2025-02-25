@@ -7,7 +7,8 @@ The function 'max_subarray_sum' below is intended to return the maximum possible
 of any contiguous subarray within the input list of integers. However, there's a bug
 that you need to fix.
 
-Use the built-in tests at the bottom of this file to verify that your fix is correct.
+Unfortunately, the tests are broken as well. 
+Fix them first and then use them to fix the function max_subarray_sum above.
 """
 
 def max_subarray_sum(nums):
